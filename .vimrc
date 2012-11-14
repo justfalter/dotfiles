@@ -166,3 +166,11 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 
+hi DiffAdd      ctermfg=0 ctermbg=2 guibg='green'
+hi DiffDelete   ctermfg=0 ctermbg=1 guibg='red'
+hi DiffChange   ctermfg=0 ctermbg=3 guibg='yellow'
+let g:svndiff_autoupdate = 1 
+
+noremap <F3> :call Svndiff("prev")<CR>
+noremap <F4> :call Svndiff("next")<CR>
+noremap <F5> :call Svndiff("clear")<CR>
