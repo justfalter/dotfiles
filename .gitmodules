@@ -22,3 +22,9 @@
 [submodule ".vim/bundle/neocomplcache"]
 	path = .vim/bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
+[submodule ".vim/bundle/confluencewiki"]
+	path = .vim/bundle/confluencewiki
+	url = https://github.com/vim-scripts/confluencewiki.vim.git
+[submodule ".vim/bundle/svndiff"]
+	path = .vim/bundle/svndiff
+	url = git://github.com/vim-scripts/svndiff.git

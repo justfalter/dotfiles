@@ -1,12 +1,12 @@
 require 'rubygems'
 require 'irb/completion'
-begin
-  require 'irb/ext/save-history'
-
-  IRB.conf[:SAVE_HISTORY] = 200
-rescue LoadError
-  puts "Couldn't load 'irb/ext/save-history'"
-end
+#begin
+#  require 'irb/ext/save-history'
+#
+#  IRB.conf[:SAVE_HISTORY] = 200
+#rescue LoadError
+#  puts "Couldn't load 'irb/ext/save-history'"
+#end
 
 #Set up Looksee
 begin

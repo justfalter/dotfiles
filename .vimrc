@@ -62,6 +62,8 @@ autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandt
 autocmd BufNewFile,BufRead *.rhtml setlocal ft=eruby
 autocmd BufNewFile,BufRead *.tmpl setlocal ft=htmljinja
 autocmd BufNewFile,BufRead *.py_tmpl setlocal ft=python
+autocmd BufNewFile,BufRead *.nse setlocal ft=lua
+
 
 " CSS
 " ---
@@ -119,6 +121,9 @@ map ,m :TagbarToggle<CR>
 " current file.
 map ,cd :cd %:p:h<CR>
 
+" Fix indenting on the entire file.
+map ,ai gg=G<CR>
+
 
 " Snagged from http://www.daskrachen.com/2011/12/how-to-make-tagbar-work-with-objective.html
 " add a definition for Objective-C to tagbar
@@ -158,3 +163,6 @@ let g:tagbar_type_objc = {
 
 " Enable autocompletion
 let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+
