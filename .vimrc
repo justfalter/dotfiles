@@ -17,6 +17,9 @@ set encoding=utf-8
 set wildmenu
 let g:rubycomplete_rails = 1
 
+" Give ourselves some room when scrolling around.
+set scrolloff=5
+
 " Needed on some linux distros.
 " see http://www.adamlowe.me/2009/12/vim-destroys-all-other-rails-editors.html
 filetype off 
@@ -50,6 +53,14 @@ set number
 
 filetype plugin indent on
 syntax enable
+
+
+" Don't be a whitespace jerk.
+autocmd FileType,ColorScheme *
+\ syntax match TrailingWhitespace /\s\+$/ |
+\ highlight TrailingWhitespace cterm=underline gui=underline guifg=darkblue ctermfg=darkblue |
+\ syntax match Tab /\t/ |
+\ highlight Tab cterm=underline gui=underline guifg=darkgray ctermfg=darkgray
 
 " ruby support
 " ------------
