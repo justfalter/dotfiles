@@ -41,3 +41,6 @@
 [submodule ".vim/pathogen"]
 	path = .vim/pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule ".vim/bundle/vim-rvm"]
+	path = .vim/bundle/vim-rvm
+	url = https://github.com/tpope/vim-rvm.git
