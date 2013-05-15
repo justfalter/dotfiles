@@ -54,6 +54,11 @@ set number
 filetype plugin indent on
 syntax enable
 
+" Check for RVM and jruby, and setup the ruby_path. This stops vim-ruby from having to
+" call ruby to get the path, which slows things down horribly under jruby.
+if !empty(matchstr($MY_RUBY_HOME, 'jruby'))
+  let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/rubysite_ruby/*'),"\n"),',')
+endif
 
 " Don't be a whitespace jerk.
 autocmd FileType,ColorScheme *
