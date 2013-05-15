@@ -3,11 +3,13 @@ All you gotta do is link to the stuff in my_rc_files.
 Good times.
 
 cd ~
-ln -s /path/to/my_rc_files/.irbrc ~/.irbrc
-ln -s /path/to/my_rc_files/.screenrc ~/.screenrc
-ln -s /path/to/my_rc_files/.vim ~/.vim
-ln -s /path/to/my_rc_files/.vimrc ~/.vimrc
-ln -s /path/to/my_rc_files/.gvimrc ~/.gvimrc
+git clone git@github.com:justfalter/my_rc_files.git
+ln -s ~/my_rc_files/.irbrc ~/.irbrc
+ln -s ~/my_rc_files/.screenrc ~/.screenrc
+ln -s ~/my_rc_files/.vim ~/.vim
+ln -s ~/my_rc_files/.vimrc ~/.vimrc
+ln -s ~/my_rc_files/.gvimrc ~/.gvimrc
+ln -s ~/my_rc_files/.tmux.conf ~/.tmux.conf
 
 
 #######
