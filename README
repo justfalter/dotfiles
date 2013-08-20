@@ -10,6 +10,7 @@ ln -s ~/my_rc_files/.vim ~/.vim
 ln -s ~/my_rc_files/.vimrc ~/.vimrc
 ln -s ~/my_rc_files/.gvimrc ~/.gvimrc
 ln -s ~/my_rc_files/.tmux.conf ~/.tmux.conf
+ln -s ~/my_rc_files/.tmux-osx.conf ~/.tmux-osx.conf
 
 
 #######
