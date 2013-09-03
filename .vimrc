@@ -17,6 +17,16 @@ set encoding=utf-8
 set wildmenu
 let g:rubycomplete_rails = 1
 
+" Hack to use old RE engine. New one is slow?
+set re=1
+
+" Disable stuff I'm not using.
+let g:pathogen_disabled = []
+call add(g:pathogen_disabled, 'confluencewiki')
+call add(g:pathogen_disabled, 'rubytest.vim')
+call add(g:pathogen_disabled, 'vim-rvm')
+call add(g:pathogen_disabled, 'snipmate.vim')
+
 " Give ourselves some room when scrolling around.
 set scrolloff=5
 
@@ -53,11 +63,19 @@ set number
 
 filetype plugin indent on
 syntax enable
+let detected_ruby_path = ""
+if !empty($MY_RUBY_HOME)
+  " This is from RVM
+  let detected_ruby_path = $MY_RUBY_HOME
+elseif !empty($RUBY_ROOT)
+  " This is from chruby
+  let detected_ruby_path = $RUBY_ROOT
+endif 
 
 " Check for RVM and jruby, and setup the ruby_path. This stops vim-ruby from having to
 " call ruby to get the path, which slows things down horribly under jruby.
-if !empty(matchstr($MY_RUBY_HOME, 'jruby'))
-  let g:ruby_path = join(split(glob($MY_RUBY_HOME.'/lib/ruby/*.*')."\n".glob($MY_RUBY_HOME.'/lib/rubysite_ruby/*'),"\n"),',')
+if !empty(matchstr(detected_ruby_path, 'jruby'))
+  let g:ruby_path = join(split(glob(detected_ruby_path . '/lib/ruby/*.*')."\n" . glob(detected_ruby_path . '/lib/rubysite_ruby/*'),"\n"),',')
 endif
 
 " Don't be a whitespace jerk.
@@ -90,7 +108,8 @@ autocmd FileType css setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 set hlsearch
 set incsearch
 
-set cursorline                   
+" This slows scrolling down a ton.
+" set cursorline                   
 
 if exists('+colorcolumn')
   " Show column 80, so I can know when to use the enter key.
