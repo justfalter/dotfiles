@@ -18,7 +18,9 @@ set wildmenu
 let g:rubycomplete_rails = 1
 
 " Hack to use old RE engine. New one is slow?
-set re=1
+if version >= 704
+  set re=1
+end
 
 " Disable stuff I'm not using.
 let g:pathogen_disabled = []
