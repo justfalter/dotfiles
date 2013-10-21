@@ -209,3 +209,6 @@ let g:svndiff_autoupdate = 1
 noremap <F3> :call Svndiff("prev")<CR>
 noremap <F4> :call Svndiff("next")<CR>
 noremap <F5> :call Svndiff("clear")<CR>
+
+" Jump to closing brace by pressing "%"
+noremap % v%
