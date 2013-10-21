@@ -10,7 +10,7 @@ function linkit {
     LNEXTRA="-f"
   fi
 
-  LNCMD="ln $LNEXTRA -hs $SRC $DEST"
+  LNCMD="ln $LNEXTRA -ns $SRC $DEST"
 
   bash -xc "$LNCMD"
 
