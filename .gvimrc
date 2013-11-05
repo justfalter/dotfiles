@@ -74,7 +74,7 @@ endif
 set laststatus=2
 
 function! MyCWD() 
-    let l:cwd = substitute(getcwd(), '/Users/mryan/', "~/", "g")
+    let l:cwd = substitute(getcwd(), $HOME, "~/", "g")
     return l:cwd
 endfunction 
 
