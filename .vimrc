@@ -53,10 +53,10 @@ set history=1000
 if !has("gui_running")
   " Set 256 colors
   set t_Co=256 
-  set background=dark
-  colorscheme ir_black
 endif
 
+set background=dark
+colorscheme vividchalk
 
 "extended % matching
 runtime macros/matchit.vim

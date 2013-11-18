@@ -61,8 +61,6 @@ endif
 set columns=100
 set lines=70
 set guifont=Inconsolata:h12
-set background=dark
-colorscheme ir_black
 
 " Hide the toolbar (I don't use it)
 if has("gui_running")
