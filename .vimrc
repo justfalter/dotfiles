@@ -99,6 +99,7 @@ autocmd BufNewFile,BufRead *.rhtml setlocal ft=eruby
 autocmd BufNewFile,BufRead *.tmpl setlocal ft=htmljinja
 autocmd BufNewFile,BufRead *.py_tmpl setlocal ft=python
 autocmd BufNewFile,BufRead *.nse setlocal ft=lua
+autocmd BufNewFile,BufRead *.t setlocal ft=perl
 
 
 " CSS
