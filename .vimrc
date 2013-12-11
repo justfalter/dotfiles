@@ -17,6 +17,8 @@ set encoding=utf-8
 set wildmenu
 let g:rubycomplete_rails = 1
 
+let mapleader=','
+
 " Hack to use old RE engine. New one is slow?
 if version >= 704
   set re=1
@@ -56,6 +58,7 @@ if !has("gui_running")
 endif
 
 set background=dark
+"colorscheme desertEx
 colorscheme vividchalk
 
 "extended % matching
@@ -135,32 +138,34 @@ let g:explHideFiles='^\.,.*\.sw[po]$,.*\.pyc$'
 let g:explDetailedHelp=0
 
 " Builtin file browser
-map ,b :Explore!<CR>
+map <leader>b :Explore!<CR>
 
 " NERDtree file browser is better
-map ,nt :NERDTree 
+map <leader>nt :NERDTree 
 " Locate the current file in NERDTree
-map ,nf :NERDTreeFind<CR>
+map <leader>nf :NERDTreeFind<CR>
+" Show dotfiles.
+let NERDTreeShowHidden=1
 
 map <TAB> 
 
 " Run the current buffer as ruby code.
-map ,rr :exe ':w !ruby'<CR>
+map <leader>rr :exe ':w !ruby'<CR>
 
 " Run the current spec file.
-map ,rs :exe ':!spec --format nested %'<CR>
-map ,tt :let g:rubytest_in_quickfix = 0<CR><Plug>RubyTestRun
-map ,tT :let g:rubytest_in_quickfix = 1<CR><Plug>RubyTestRun
-map ,tf :let g:rubytest_in_quickfix = 0<CR><Plug>RubyFileRun
-map ,tF :let g:rubytest_in_quickfix = 1<CR><Plug>RubyFileRun
-map ,m :TagbarToggle<CR>
+map <leader>rs :exe ':!spec --format nested %'<CR>
+map <leader>tt :let g:rubytest_in_quickfix = 0<CR><Plug>RubyTestRun
+map <leader>tT :let g:rubytest_in_quickfix = 1<CR><Plug>RubyTestRun
+map <leader>tf :let g:rubytest_in_quickfix = 0<CR><Plug>RubyFileRun
+map <leader>tF :let g:rubytest_in_quickfix = 1<CR><Plug>RubyFileRun
+map <leader>m :TagbarToggle<CR>
 
 " Mapping so that I can easily change to the working directory of the
 " current file.
-map ,cd :cd %:p:h<CR>
+map <leader>cd :cd %:p:h<CR>
 
 " Fix indenting on the entire file.
-map ,ai gg=G<CR>
+map <leader>ai gg=G<CR>
 
 
 " Snagged from http://www.daskrachen.com/2011/12/how-to-make-tagbar-work-with-objective.html
@@ -204,14 +209,25 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 
-hi DiffAdd      ctermfg=0 ctermbg=2 guibg='green'
-hi DiffDelete   ctermfg=0 ctermbg=1 guibg='red'
-hi DiffChange   ctermfg=0 ctermbg=3 guibg='yellow'
-let g:svndiff_autoupdate = 1 
-
-noremap <F3> :call Svndiff("prev")<CR>
-noremap <F4> :call Svndiff("next")<CR>
-noremap <F5> :call Svndiff("clear")<CR>
+" hi DiffAdd      ctermfg=0 ctermbg=2 guibg='green'
+" hi DiffDelete   ctermfg=0 ctermbg=1 guibg='red'
+" hi DiffChange   ctermfg=0 ctermbg=3 guibg='yellow'
+" let g:svndiff_autoupdate = 1 
+" 
+" noremap <F3> :call Svndiff("prev")<CR>
+" noremap <F4> :call Svndiff("next")<CR>
+" noremap <F5> :call Svndiff("clear")<CR>
 
 " Jump to closing brace by pressing "%"
 noremap % v%
+
+" TabMessage redirects output from a command into a new tab.
+function! TabMessage(cmd)
+  redir => message
+  silent execute a:cmd
+  redir END
+  tabnew
+  silent put=message
+  set nomodified
+endfunction
+command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
