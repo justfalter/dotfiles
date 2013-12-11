@@ -1,13 +1,13 @@
-All you gotta do is link to the stuff in my_rc_files.
+All you gotta do is link to the stuff in dotfiles.
 
 Good times.
 
 cd ~
-git clone git@github.com:justfalter/my_rc_files.git
-my_rc_files/setup.sh
+git clone git@github.com:justfalter/dotfiles.git
+dotfiles/setup.sh
 
 # If you have existing stuff and just want to stomp on whatever is there:
-my_rc_files/setup-force.sh
+dotfiles/setup-force.sh
 
 
 
