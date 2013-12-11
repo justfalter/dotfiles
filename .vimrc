@@ -167,6 +167,11 @@ map <leader>cd :cd %:p:h<CR>
 " Fix indenting on the entire file.
 map <leader>ai gg=G<CR>
 
+" Git stuff
+map <leader>gs :Gstatus
+map <leader>gd :Gdiff
+map <leader>gb :Gblame
+
 
 " Snagged from http://www.daskrachen.com/2011/12/how-to-make-tagbar-work-with-objective.html
 " add a definition for Objective-C to tagbar
