@@ -172,6 +172,9 @@ map <leader>gs :Gstatus
 map <leader>gd :Gdiff
 map <leader>gb :Gblame
 
+" Stop GitGutter from re-running each time I switch tabs.
+let g:gitgutter_eager = 0
+
 
 " Snagged from http://www.daskrachen.com/2011/12/how-to-make-tagbar-work-with-objective.html
 " add a definition for Objective-C to tagbar
