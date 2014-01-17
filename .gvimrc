@@ -60,7 +60,16 @@ endif
 
 set columns=100
 set lines=70
-set guifont=Inconsolata:h12
+if has("gui_gtk2")
+  set guifont=DejaVu\ Sans\ Mono 9
+  vmap <C-c> "+y
+  nmap <C-v> "+p
+elseif has("gui_macvim")
+  set guifont=Inconsolata:h12
+elseif has("gui_win32")
+  set guifont=Inconsolata:h11
+end
+"set guifont=Inconsolata:h12
 
 " Hide the toolbar (I don't use it)
 if has("gui_running")
