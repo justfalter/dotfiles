@@ -239,3 +239,9 @@ function! TabMessage(cmd)
   set nomodified
 endfunction
 command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
+
+
+" Switching tabs
+nmap <A-}> :tabn<CR>
+nmap <A-{> :tabp<CR>
+
