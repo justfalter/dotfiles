@@ -1,0 +1,6 @@
+OSX:
+  - ALL Listening on TCP: sudo lsof -i TCP -sTCP:LISTEN -n -P
+  - ALL Established TCP: sudo lsof -i TCP -sTCP:^LISTEN -n -P
+  - ALL Listening UDP: sudo lsof -i UDP -n -P
+
+  - Listening on non-localhost for UDP: sudo lsof -i UDP -n -P|egrep -v '(127|::1)'
