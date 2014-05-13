@@ -33,6 +33,6 @@ else
   linkit $RCDIR/.tmux.conf ~/.tmux.conf
 fi
 
-if ! grep -qe "^source $RCDIR/bash_env.sh$" ~/.bash_profile ; then
-    echo "source $RCDIR/bash_env.sh" >> ~/.bash_profile
+if ! grep -qe "^source $RCDIR/bash_env.sh$" ~/.bashrc; then
+    echo "source $RCDIR/bash_env.sh" >> ~/.bashrc
 fi
