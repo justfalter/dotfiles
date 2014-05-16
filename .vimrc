@@ -245,3 +245,6 @@ command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 nmap <A-}> :tabn<CR>
 nmap <A-{> :tabp<CR>
 
+" Map a lot of keys such that copying/pasting/etc act like windows
+source $VIMRUNTIME/mswin.vim
+behave mswin
