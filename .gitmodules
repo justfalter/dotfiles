@@ -59,3 +59,9 @@
 [submodule "git-aware-prompt"]
 	path = git-aware-prompt
 	url = https://github.com/jimeh/git-aware-prompt.git
+[submodule ".vim/bundle/vim-markdown.git"]
+	path = .vim/bundle/vim-markdown.git
+	url = https://github.com/tpope/vim-markdown.git
+[submodule ".vim/bundle/vim-json.git"]
+	path = .vim/bundle/vim-json.git
+	url = https://github.com/elzr/vim-json.git

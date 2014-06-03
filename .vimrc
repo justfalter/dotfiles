@@ -104,6 +104,20 @@ autocmd BufNewFile,BufRead *.py_tmpl setlocal ft=python
 autocmd BufNewFile,BufRead *.nse setlocal ft=lua
 autocmd BufNewFile,BufRead *.t setlocal ft=perl
 
+" github flavored markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" json
+let g:vim_json_syntax_conceal = 0
+augroup json_autocmd 
+  autocmd! 
+  autocmd FileType json set autoindent 
+  autocmd FileType json set formatoptions=tcq2l 
+  autocmd FileType json set textwidth=78 shiftwidth=2 
+  autocmd FileType json set softtabstop=2 tabstop=2 
+  autocmd FileType json set expandtab 
+  " autocmd FileType json set foldmethod=syntax 
+augroup END
 
 " CSS
 " ---
