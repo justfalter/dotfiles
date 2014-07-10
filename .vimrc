@@ -103,6 +103,8 @@ autocmd BufNewFile,BufRead *.tmpl setlocal ft=htmljinja
 autocmd BufNewFile,BufRead *.py_tmpl setlocal ft=python
 autocmd BufNewFile,BufRead *.nse setlocal ft=lua
 autocmd BufNewFile,BufRead *.t setlocal ft=perl
+" Threatinator feed files
+autocmd BufNewFile,BufRead *.feed setlocal ft=ruby
 
 " github flavored markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
