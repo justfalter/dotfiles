@@ -2,3 +2,6 @@
 plugin/local_stuff.vim
 local_stuff/
 .netrwhist
+undo/
+swap/
+viminfo
