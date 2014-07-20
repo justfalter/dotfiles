@@ -162,6 +162,8 @@ map <leader>nt :NERDTree
 map <leader>nf :NERDTreeFind<CR>
 " Show dotfiles.
 let NERDTreeShowHidden=1
+" Close the tree when I open a file. 
+let NERDTreeQuitOnOpen=1
 
 map <TAB> 
 
