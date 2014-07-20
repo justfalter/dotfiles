@@ -37,8 +37,8 @@ set scrolloff=5
 " Needed on some linux distros.
 " see http://www.adamlowe.me/2009/12/vim-destroys-all-other-rails-editors.html
 filetype off 
+call pathogen#infect('bundle/{}')
 call pathogen#helptags()
-call pathogen#incubate()
 
 " Disable audible bell so I'm not embharassed to type when I've got the
 " sound on.
