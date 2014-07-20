@@ -36,3 +36,8 @@ fi
 if ! grep -qe "^source $RCDIR/bash_env.sh$" ~/.bashrc; then
     echo "source $RCDIR/bash_env.sh" >> ~/.bashrc
 fi
+
+# configure git to ignore untracked stuff in submodules. This is to work
+# around the issue of vim generating documentation tags in each module,
+# which leaves stuff sitting around.
+for s in `git submodule  --quiet foreach 'echo $name'` ; do git config submodule.$s.ignore untracked ; done
