@@ -68,3 +68,6 @@
 [submodule ".vim/bundle/vim-bookmarks"]
 	path = .vim/bundle/vim-bookmarks
 	url = https://github.com/MattesGroeger/vim-bookmarks.git
+[submodule ".vim/bundle/vim-openscad"]
+	path = .vim/bundle/vim-openscad
+	url = https://github.com/sirtaj/vim-openscad.git
