@@ -30,6 +30,7 @@ call add(g:pathogen_disabled, 'confluencewiki')
 call add(g:pathogen_disabled, 'rubytest.vim')
 call add(g:pathogen_disabled, 'vim-rvm')
 call add(g:pathogen_disabled, 'snipmate.vim')
+call add(g:pathogen_disabled, 'vim-gitgutter')
 
 " Give ourselves some room when scrolling around.
 set scrolloff=5
@@ -108,6 +109,9 @@ autocmd BufNewFile,BufRead *.feed setlocal ft=ruby
 
 " github flavored markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" github flavored markdown
+autocmd BufNewFile,BufReadPost *.mf set filetype=make
 
 " json
 let g:vim_json_syntax_conceal = 0
@@ -234,6 +238,11 @@ let g:tagbar_type_objc = {
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
+
+" Buffer explorer options
+let g:bufExplorerShowRelativePath=1  " Show relative paths.
+let g:bufExplorerSortBy='fullpath'   " Sort by full file path name.
+let g:bufExplorerSplitOutPathName=1  " Split the path and file name
 
 " vim-bookmark settings
 let g:bookmark_highlight_lines = 1

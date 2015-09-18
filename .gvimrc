@@ -61,7 +61,7 @@ endif
 set columns=100
 set lines=70
 if has("gui_gtk2")
-  set guifont=DejaVu\ Sans\ Mono 9
+  set guifont=DejaVu\ Sans\ Mono\ 9
   vmap <C-c> "+y
   nmap <C-v> "+p
 elseif has("gui_macvim")
