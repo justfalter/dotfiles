@@ -169,6 +169,8 @@ let NERDTreeShowHidden=1
 " Close the tree when I open a file. 
 let NERDTreeQuitOnOpen=1
 
+let NERDTreeIgnore = ['\.pyc$']
+
 map <TAB> 
 
 " Run the current buffer as ruby code.
