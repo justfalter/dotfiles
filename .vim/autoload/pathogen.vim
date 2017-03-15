@@ -1,1 +1,1 @@
-../pathogen/autoload/pathogen.vim
+exec 'source ' . VIMDIR . '/pathogen/autoload/pathogen.vim'

@@ -24,6 +24,13 @@ if version >= 704
   set re=1
 end
 
+if has('win32') || has ('win64') || has('win32unix')
+  let VIMDIR = $HOME.'/vimfiles'
+else
+  let VIMDIR = $HOME.'/.vim'
+endif
+let &runtimepath.=',' . VIMDIR
+
 " Disable stuff I'm not using.
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled, 'confluencewiki')
@@ -31,6 +38,10 @@ call add(g:pathogen_disabled, 'rubytest.vim')
 call add(g:pathogen_disabled, 'vim-rvm')
 call add(g:pathogen_disabled, 'snipmate.vim')
 call add(g:pathogen_disabled, 'vim-gitgutter')
+
+if has('win32') || has ('win64') || has('win32unix')
+  call add(g:pathogen_disabled, 'editorconfig-vim')
+endif
 
 " Give ourselves some room when scrolling around.
 set scrolloff=5
@@ -78,11 +89,11 @@ elseif !empty($RUBY_ROOT)
   let detected_ruby_path = $RUBY_ROOT
 endif 
 
-" Check for RVM and jruby, and setup the ruby_path. This stops vim-ruby from having to
-" call ruby to get the path, which slows things down horribly under jruby.
-if !empty(matchstr(detected_ruby_path, 'jruby'))
-  let g:ruby_path = join(split(glob(detected_ruby_path . '/lib/ruby/*.*')."\n" . glob(detected_ruby_path . '/lib/rubysite_ruby/*'),"\n"),',')
-endif
+"" Check for RVM and jruby, and setup the ruby_path. This stops vim-ruby from having to
+"" call ruby to get the path, which slows things down horribly under jruby.
+"if !empty(matchstr(detected_ruby_path, 'jruby'))
+"  let g:ruby_path = join(split(glob(detected_ruby_path . '/lib/ruby/*.*')."\n" . glob(detected_ruby_path . '/lib/rubysite_ruby/*'),"\n"),',')
+"endif
 
 " Don't be a whitespace jerk.
 autocmd FileType,ColorScheme *
@@ -286,26 +297,43 @@ behave mswin
 " Save your swp files to a less annoying place than the current directory.
 " If you have .vim-swap in the current directory, it'll use that.
 " Otherwise it saves it to ~/.vim/swap, ~/tmp or .
-if isdirectory($HOME . '/.vim/swap') == 0
-  :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+
+let SWAPDIR = VIMDIR . '/swap'
+if isdirectory(SWAPDIR) == 0
+  if has('win32') || has ('win64')
+    let SWAPDIR_ESC = escape(substitute(SWAPDIR, '/', '\\', 'g'), ' ')
+    exec ':silent !mkdir ' . SWAPDIR_ESC
+  else
+    exec ':silent !mkdir -p "' . SWAPDIR . '"'
+  endif
 endif
+
 set directory=./.vim-swap//
-set directory+=~/.vim/swap//
-set directory+=~/tmp//
+let &directory.=',' . SWAPDIR . '//'
 set directory+=.
 
-" viminfo stores the the state of your previous editing session
-set viminfo+=n~/.vim/viminfo
+if exists("+viminfo")
+  " viminfo stores the the state of your previous editing session
+  let &viminfo.= ',n' . VIMDIR . '/viminfo'
+endif
 
 if exists("+undofile")
   " undofile - This allows you to use undos after exiting and restarting
   " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
   " :help undo-persistence
   " This is only present in 7.3+
-  if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  let _UNDODIR= VIMDIR . '/undo'
+  if isdirectory(_UNDODIR) == 0
+    if has('win32') || has ('win64')
+      let _UNDODIR_ESC = escape(substitute(_UNDODIR, '/', '\\', 'g'), ' ')
+      exec ':silent !mkdir ' . _UNDODIR_ESC
+    else
+      exec ':silent !mkdir -p "' . _UNDODIR . '"'
+    endif
   endif
+
   set undodir=./.vim-undo//
-  set undodir+=~/.vim/undo//
+  let &undodir.=',' . _UNDODIR . '//'
+  
   set undofile
 endif
