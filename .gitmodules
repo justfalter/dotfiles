@@ -10,9 +10,6 @@
 [submodule ".vim/bundle/rubytest.vim"]
 	path = .vim/bundle/rubytest.vim
 	url = https://github.com/janx/vim-rubytest.git
-[submodule ".vim/bundle/bufexplorer.vim"]
-	path = .vim/bundle/bufexplorer.vim
-	url = https://github.com/vim-scripts/bufexplorer.zip.git
 [submodule ".vim/bundle/easymotion"]
 	path = .vim/bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
@@ -77,3 +74,6 @@
 [submodule ".vim/bundle/vim-ps1"]
 	path = .vim/bundle/vim-ps1
 	url = https://github.com/PProvost/vim-ps1.git
+[submodule ".vim/bundle/bufexplorer"]
+	path = .vim/bundle/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
