@@ -40,7 +40,7 @@ call add(g:pathogen_disabled, 'snipmate.vim')
 call add(g:pathogen_disabled, 'vim-gitgutter')
 
 if has('win32') || has ('win64') || has('win32unix')
-  call add(g:pathogen_disabled, 'editorconfig-vim')
+  "call add(g:pathogen_disabled, 'editorconfig-vim')
 endif
 
 " Give ourselves some room when scrolling around.
