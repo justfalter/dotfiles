@@ -253,9 +253,9 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 
 " Buffer explorer options
-let g:bufExplorerShowRelativePath=1  " Show relative paths.
-let g:bufExplorerSortBy='fullpath'   " Sort by full file path name.
-let g:bufExplorerSplitOutPathName=1  " Split the path and file name
+"let g:bufExplorerShowRelativePath=1  " Show relative paths.
+"let g:bufExplorerSortBy='fullpath'   " Sort by full file path name.
+"let g:bufExplorerSplitOutPathName=1  " Split the path and file name
 
 " vim-bookmark settings
 let g:bookmark_highlight_lines = 1
